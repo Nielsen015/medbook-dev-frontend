@@ -1,0 +1,23 @@
+<!-- import { HighlightDirective } from '../highlight.directive'; -->
+<h2>Patient List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Gender</th>
+      <th>Type of Services</th>
+      <th>General Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patients">
+      <td>{{ patient.name }}</td>
+      <td>{{ patient.dob | dateOfBirth }}</td>
+      <td>{{ patient.gender }}</td>
+      <td>{{ patient.services }}</td>
+      <td>{{ patient.comments }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<h2>Create New Patient</h2>
+
+<form (ngSubmit)="savePatient()" #patientForm="ngForm">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="patient.name" required>
+  </div>
+
+  <div>
+    <label for="dob">Date of Birth:</label>
+    <input type="text" id="dob" name="dob" [(ngModel)]="patient.dob" [ngModelOptions]="{ updateOn: 'blur' }" [value]="patient.dob | dateFormat" required>
+    
+  </div>
+
+  <div>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" [(ngModel)]="patient.gender" required>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="services">Type of Service:</label>
+    <select id="services" name="services" [(ngModel)]="patient.services" required>
+        <option value="Maternity">Maternity</option>
+        <option value="Dental">Dental</option>
+        <option value="Surgical Services">Surgical Services</option>
+        <option value="Diagnostic Services">Diagnostic Services</option>
+        <option value="Emergency Care">Emergency Care</option>
+        <option value="Mental Health Services">Mental Health Services</option>
+        <option value="Specialist Care">Specialist Care</option>
+      </select>
+  </div>
+
+  <div>
+    <label for="comments">General Comments:</label>
+    <textarea id="comments" name="comments" [(ngModel)]="patient.comments"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="!patientForm.valid">Save</button>
+</form>
